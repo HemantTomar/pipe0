@@ -2,7 +2,7 @@ resource "aws_codepipeline_webhook" "codepipeline_webhook" {
   authentication  = "GITHUB_HMAC"
   name            = "codepipeline-webhook"
   target_action   = "Source"
-  target_pipeline = aws_codepipeline.static_web_pipeline.name
+  target_pipeline = aws_codepipeline.codepipeline.name
 
   authentication_configuration {
     secret_token = random_string.github_secret.result
